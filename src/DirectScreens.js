@@ -10,7 +10,7 @@ import { Login } from "./screens/Login";
     PARAMS: 
 
 */
-export const Routes = () => {
+export const DirectScreens = () => {
     //Context
     const { isUserSignedIn, loggedIn } = useContext(GlobalContext);
 

@@ -3,7 +3,7 @@ module.exports = function(app) {
     app.use(
         '/api/v1.1/login/',
         createProxyMiddleware({
-           target: 'http://localhost:5000',
+           target: process.env.REACT_APP_DEV_API_APP_URL,
            secure: false,
            changeOrigin: true
         })
@@ -11,7 +11,7 @@ module.exports = function(app) {
       app.use(
         '/webapp/.*',
         createProxyMiddleware({
-           target: 'http://localhost:5000',
+           target: process.env.REACT_APP_DEV_API_SCRAPER_URL,
            changeOrigin: true
         })
       );

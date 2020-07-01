@@ -9,8 +9,6 @@
 # production
 /build
 
-# protected 
-/config
 
 # misc
 .DS_Store

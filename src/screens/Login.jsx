@@ -58,7 +58,7 @@ export const Login = () => {
                 <i className="fas fa-sign-in-alt"></i> Sign in
             </button>
             <hr />
-            <a href="http://myindividualist.com">Sign up New Account</a>
+            <a target="_blank" rel="noopener noreferrer" href="http://myindividualist.com">Sign up New Account</a>
 
         </form>
         </div>

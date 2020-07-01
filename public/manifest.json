@@ -15,5 +15,9 @@
     "128": "favicon.ico"
   },
   "content_security_policy": "script-src 'self' 'sha256-/2mvBbmJeChkw6iCkssu+2BZ1nysZfClbxRjJD+d3PU='; object-src 'self'",  
-  "permissions": ["<all_urls>"]
+  "permissions": [
+                  "<all_urls>",
+                  "tabs",
+                  "webNavigation"
+                ]
 }
