@@ -23,10 +23,12 @@ const GlobalStyle = createGlobalStyle`
         box-sizing: border-box;
     } 
     .error {
-    color: #c0392b;
-}
+        color: #c0392b;
+    }   
+    .success {
+        color: #3bd120;
+    }
 `;
-
 
 // App pages:
 //      Main Page - View/add/edit recipes and shoppinglist
@@ -38,5 +40,5 @@ const App = () => {
             <DirectScreens />
         </GlobalProvider>
     );
-}
+};
 ReactDOM.render(<App />, document.getElementById("root"));
