@@ -5,7 +5,7 @@ import { Login } from "./screens/Login";
 
 /*
     SUMMARY:
-        Routes encapsulated by the global providor
+        Screens encapsulated by the global providor
         
     PARAMS: 
 
@@ -29,11 +29,7 @@ export const DirectScreens = () => {
 
     // New recipe form (no ingredients added at start)
     if (render) {
-        return (
-                <>
-                {loggedIn ? (<MainPage />) : (<Login/>) }
-            </>
-        );
+        return <>{loggedIn ? <MainPage /> : <Login />}</>;
     } else {
         return <></>;
     }

@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./App.css"; // Styled components used instead
 import { GlobalProvider } from "./context/GlobalState";
 import { DirectScreens } from "./DirectScreens";
 import { createGlobalStyle } from "styled-components";
@@ -21,7 +20,7 @@ const GlobalStyle = createGlobalStyle`
     }
     * {
         box-sizing: border-box;
-    } 
+    }  
     .error {
         color: #c0392b;
     }   

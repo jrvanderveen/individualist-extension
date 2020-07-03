@@ -5,7 +5,8 @@ import axios from "axios";
 // Initial state
 const initialState = {
     loggedIn: false,
-    username: ""
+    username: "",
+    error: [],
 };
 
 // Create context
@@ -14,21 +15,19 @@ export const GlobalContext = createContext(initialState);
 // Provider component
 export const GlobalProvider = ({ children }) => {
     const [state, dispatch] = useReducer(AppReducer, initialState);
-    const URL = (process.env.NODE_ENV === 'development' ? "" : process.env.REACT_APP_PROD_API_APP_URL )
+    const URL = process.env.NODE_ENV === "development" ? "" : process.env.REACT_APP_PROD_API_APP_URL;
 
     //////////////////////////////////////////////////////////////
     // SIGNIN
     // Check login state of user before initial render
     async function isUserSignedIn() {
         try {
-            await axios
-                .post(URL + "/api/v1.1/login/state")
-                .then((res) => {
-                    dispatch({
-                        type: "LOG_IN_STATE",
-                        payload: res.data,
-                    });
-                })
+            await axios.post(URL + "/api/v1.1/login/state").then((res) => {
+                dispatch({
+                    type: "LOG_IN_STATE",
+                    payload: res.data,
+                });
+            });
         } catch (error) {
             dispatch({
                 type: "LOGIN_ERROR",
@@ -68,17 +67,12 @@ export const GlobalProvider = ({ children }) => {
             return false;
         }
     }
- 
 
     return (
         <GlobalContext.Provider
             value={{
                 loggedIn: state.loggedIn,
                 username: state.username,
-                recipes: state.recipes,
-                shoppingList: state.shoppingList,
-                creatingShoppingList: state.creatingShoppingList,
-                grocerySections: state.grocerySections,
                 error: state.error,
                 signOut,
                 isUserSignedIn,

@@ -16,8 +16,8 @@ const H4 = styled.h4`
 
 /*
     SUMMARY:
-        Display welcome Message.
-        allow user to signout and save recipes
+        Main page displays welcom message and allows users to add recipes to their accounts
+            if page is valid page then button will apear red instead of blue
 
     PARAMS: 
 */
@@ -47,7 +47,7 @@ export const MainPage = () => {
                     axios
                         .post(appURL + "/api/v1.1/recipes/addFull", res.data)
                         .then(() => {
-                            setSuccess(["Added Recipe"]);
+                            setSuccess(["Recipe Added"]);
                         })
                         .catch((error) => {
                             currErrors.push(error);
