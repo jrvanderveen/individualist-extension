@@ -1,23 +1,19 @@
 {
-  "manifest_version": 2,
+    "manifest_version": 2,
 
-  "name": "Individualist Extension",
-  "description": "Connect your individualist account and add recipes to with a button click",
-  "version": "0.0.1",
+    "name": "Individualist Extension",
+    "description": "Connect your individualist account and add recipes to with a button click",
+    "version": "0.0.1",
 
-  "browser_action": {
-    "default_popup": "index.html",
-    "default_title": "Open the popup"
-  },
-  "icons": {
-    "16": "favicon.ico",
-    "48": "favicon.ico",
-    "128": "favicon.ico"
-  },
-  "content_security_policy": "script-src 'self' 'sha256-/2mvBbmJeChkw6iCkssu+2BZ1nysZfClbxRjJD+d3PU='; object-src 'self'",  
-  "permissions": [
-                  "<all_urls>",
-                  "tabs",
-                  "webNavigation"
-                ]
+    "browser_action": {
+        "default_popup": "index.html",
+        "default_title": "Open the popup"
+    },
+    "icons": {
+        "16": "favicon.ico",
+        "48": "favicon.ico",
+        "128": "favicon.ico"
+    },
+    "content_security_policy": "script-src 'self' 'sha256-/2mvBbmJeChkw6iCkssu+2BZ1nysZfClbxRjJD+d3PU='; object-src 'self'",
+    "permissions": ["<all_urls>", "activeTab", "webNavigation"]
 }
