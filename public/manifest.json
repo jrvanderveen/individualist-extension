@@ -3,7 +3,7 @@
 
     "name": "Individualist Extension",
     "description": "Connect your individualist account and add recipes to with a button click",
-    "version": "0.0.1",
+    "version": "0.0.2",
 
     "browser_action": {
         "default_popup": "index.html",
@@ -15,5 +15,5 @@
         "128": "favicon.ico"
     },
     "content_security_policy": "script-src 'self' 'sha256-/2mvBbmJeChkw6iCkssu+2BZ1nysZfClbxRjJD+d3PU='; object-src 'self'",
-    "permissions": ["<all_urls>", "activeTab", "webNavigation"]
+    "permissions": ["activeTab", "webNavigation"]
 }

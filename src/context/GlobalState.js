@@ -24,6 +24,7 @@ export const GlobalProvider = ({ children }) => {
         console.log(URL + "/api/v1.1/login/state");
         try {
             await axios.post(URL + "/api/v1.1/login/state").then((res) => {
+                console.log(res.data);
                 dispatch({
                     type: "LOG_IN_STATE",
                     payload: res.data,
