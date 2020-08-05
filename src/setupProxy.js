@@ -4,7 +4,7 @@ This is used for easier testing of the extension through a browser
 */
 module.exports = function (app) {
     app.use(
-        "/api/v1.1/login/",
+        "/api/login/",
         createProxyMiddleware({
             target: process.env.REACT_APP_DEV_API_APP_URL,
             secure: false,

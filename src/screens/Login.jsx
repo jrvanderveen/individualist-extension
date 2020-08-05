@@ -46,10 +46,9 @@ export const Login = () => {
     const [password, setPassword] = useState("");
 
     //Variables
-    const googleRedirect =
-        process.env.NODE_ENV === "production" ? "https://myindividualist.com/api/v1.1/login/google" : "http://localhost:5000/api/v1.1/login/google";
+    const googleRedirect = process.env.NODE_ENV === "production" ? "https://myindividualist.com/api/login/google" : "http://localhost:5000/api/login/google";
     const facebookRedirect =
-        process.env.NODE_ENV === "production" ? "https://myindividualist.com/api/v1.1/login/facebook" : "http://localhost:5000/api/v1.1/login/facebook";
+        process.env.NODE_ENV === "production" ? "https://myindividualist.com/api/login/facebook" : "http://localhost:5000/api/login/facebook";
 
     // Functions
     const onSubmit = (e) => {

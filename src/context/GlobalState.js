@@ -15,15 +15,15 @@ export const GlobalContext = createContext(initialState);
 // Provider component
 export const GlobalProvider = ({ children }) => {
     const [state, dispatch] = useReducer(AppReducer, initialState);
-    const URL = process.env.NODE_ENV === "development" ? "" : process.env.REACT_APP_PROD_API_APP_URL;
+    const URL = process.env.NODE_ENV === "development" ? "http://localhost:5000" : process.env.REACT_APP_PROD_API_APP_URL;
 
     //////////////////////////////////////////////////////////////
     // SIGNIN
     // Check login state of user before initial render
     async function isUserSignedIn() {
-        console.log(URL + "/api/v1.1/login/state");
         try {
-            await axios.post(URL + "/api/v1.1/login/state").then((res) => {
+            console.log(URL + "/api/login/state");
+            await axios.post(URL + "/api/login/state", { mode: "cors" }).then((res) => {
                 console.log(res.data);
                 dispatch({
                     type: "LOG_IN_STATE",
@@ -41,7 +41,7 @@ export const GlobalProvider = ({ children }) => {
     // Log user in
     async function signOut() {
         try {
-            await axios.get(URL + "/api/v1.1/login/signOut");
+            await axios.get(URL + "/api/login/signOut");
             dispatch({
                 type: "LOG_USER_OUT",
             });
@@ -55,8 +55,14 @@ export const GlobalProvider = ({ children }) => {
 
     // Log user in
     async function signIn(userObj) {
+        const config = {
+            headers: {
+                "Content-Type": "text/plain",
+            },
+            mode: "cors",
+        };
         try {
-            const res = await axios.post(URL + "/api/v1.1/login/signIn", userObj);
+            const res = await axios.post(URL + "/api/login/signIn", userObj, config);
             dispatch({
                 type: "LOG_USER_IN",
                 payload: res.data.username,

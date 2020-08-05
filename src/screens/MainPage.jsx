@@ -33,21 +33,21 @@ export const MainPage = () => {
 
     const scrapePage = async () => {
         const currErrors = [];
-        const scraperURL = process.env.NODE_ENV === "development" ? "" : process.env.REACT_APP_PROD_API_SCRAPER_URL;
-        const appURL = process.env.NODE_ENV === "development" ? "" : process.env.REACT_APP_PROD_API_APP_URL;
+        const scraperURL = process.env.NODE_ENV === "development" ? "http://localhost:5000" : process.env.REACT_APP_PROD_API_SCRAPER_URL;
+        const appURL = process.env.NODE_ENV === "development" ? "http://localhost:5000" : process.env.REACT_APP_PROD_API_APP_URL;
         console.log(scraperURL + "/api/v1/scraper/recipe");
         setButtonColor("btn-light");
         await axios
             .post(scraperURL + "/api/v1/scraper/recipe", { url: currURL })
             .then((res) => {
-                console.log(appURL + "/api/v1.1/recipes/addFull");
+                console.log(appURL + "/api/recipes/addFull");
                 console.log(res.data);
                 if (res.data.error) {
                     currErrors.push(res.data.error);
                 } else {
                     console.log(res.data);
                     axios
-                        .post(appURL + "/api/v1.1/recipes/addFull", res.data)
+                        .post(appURL + "/api/recipes/addFull", res.data)
                         .then(() => {
                             setSuccess(["Recipe Added"]);
                         })
